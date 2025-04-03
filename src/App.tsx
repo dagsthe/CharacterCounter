@@ -69,6 +69,10 @@ function App() {
   // Updates IgnoreSpace State from checkbox
   const checkBoxChanged = (checked:boolean) => {
     setIgnoreSpace(checked)
+    if(checked)
+      setCharacterCount(text.replace(/\s+/g, "").length)
+    else
+      setCharacterCount(text.length)
   }
 
   return (
@@ -102,7 +106,8 @@ function App() {
               <Slider Letter={letter.toUpperCase()} Amount={uniqueLetters[letter]} Percentage={letterToPercentage[letter]}></Slider>
             ))}
           </div>
-          
+          <div className='h-20'></div> {/* Creates padding at the bottom */}
+
         </div>
       </ThemeProvider>
     </>
