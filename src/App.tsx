@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 
 import Header from './components/Header'
 import { ThemeProvider } from "./components/theme-provider"
@@ -6,6 +6,7 @@ import { Textarea } from "./components/ui/textarea"
 import { Checkbox } from "./components/ui/checkbox"
 import Numbercard from "./components/ui/numbercard"
 import Slider from "./components/ui/slider"
+import Typewriter from "./components/ui/typewriter"
 
 
 function App() {
@@ -80,7 +81,10 @@ function App() {
       <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
         <div className='w-[80%] mx-auto'>
           <Header></Header>
-          <h1 className='text-4xl md:text-7xl font-bold justify-center mt-5 mx-auto text-center'>Analyze your text in real-time.</h1>
+          <div className='text-4xl md:text-7xl font-bold justify-center mt-5 mx-auto text-center'>
+            <Typewriter Text='Analyze your text in real-time.'></Typewriter>
+          </div>
+          
           <Textarea placeholder={text} onChange={textChanged} className='h-36 mt-10'></Textarea>
           
           {/* This is to create the checkbox that ignores spaces as characters */}
